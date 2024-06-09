@@ -1,0 +1,12 @@
+.card-img-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-custom:hover .card-img-overlay {
+  opacity: 1;
+}
