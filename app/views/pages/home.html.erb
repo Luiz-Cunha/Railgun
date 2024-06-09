@@ -1,10 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container-fluid py-3">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-6 banner d-flex" style="background-image: url(<%= image_path "banner.jpg"%>);">
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container my-4">
+  <div class="row">
+    <% @characters.each do |character| %>
+    <div class="col-6 col-md-4 col-lg-3 p-3">
+      <%= link_to character_path(character) do %>
+      <div class="card border-0 card-custom">
+        <img class="card-img-top img-custom w-100" srcset="<%= character.image_url%>" alt="<%= character.name %>">
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-cente">
+          <h4 class="card-title text-white"><%= character.name %></h4>
+          <p class="card-text text-white"><%= character.kanji %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
   </div>
 </div>
