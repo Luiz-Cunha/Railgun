@@ -7,7 +7,7 @@ def fetch_data(url)
   rescue OpenURI::HTTPError => e
     if e.io.status[0] == "429"
       puts "Rate limited. Waiting for 30 seconds before retrying..."
-      sleep(30) # Wait for 30 seconds
+      sleep(30)
       retry
     else
       raise e
@@ -15,7 +15,6 @@ def fetch_data(url)
   end
 end
 
-# Destroy all existing characters
 puts "Destroying all characters..."
 Character.destroy_all
 puts "All characters destroyed."
@@ -38,7 +37,6 @@ parsed_data['data'].each do |character_data|
   name_kanji = parsed_single_char_data['data']['name_kanji']
   Character.create!(name: name, image_url: image_url_jpg, details: about, rating: 5, kanji: name_kanji, role: role)
 
-  # Delay to avoid hitting the rate limit
   sleep(1)
 end
 puts "DB Seeded"
