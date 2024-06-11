@@ -29,6 +29,8 @@ gem "jbuilder"
 gem "devise"
 
 gem "pg_search"
+
+gem 'sweetalert2', '~> 0.0.4'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

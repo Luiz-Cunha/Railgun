@@ -15,7 +15,7 @@ export default class extends Controller {
       this.formToggleTarget.classList.toggle("d-none");
     }
     else{
-      window.alert("ERROR");
+      window.alert("You must be logged in!");
     }
 
   }
