@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-// import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 // Connects to data-controller="toggle"
 export default class extends Controller {
@@ -15,7 +15,12 @@ export default class extends Controller {
       this.formToggleTarget.classList.toggle("d-none");
     }
     else{
-      window.alert("You must be logged in!");
+      Swal.fire({
+        title: 'Access Denied',
+        text: 'You must be logged in to create a comment.',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      });
     }
 
   }
