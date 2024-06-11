@@ -29,7 +29,7 @@
   </div>
 </div>
 
-<div data-controller="toggle">
+<div data-controller="toggle" data-toggle-value="<%= @user_signed_in %>">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 d-flex justify-content-center">
@@ -56,9 +56,9 @@
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <div class="d-flex align-items-center">
-            <img src="path_to_user_avatar.jpg" alt="User Avatar" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="User Avatar" class="rounded-circle me-3" style="width: 35px; height: 35px;">
             <div>
-              <h5 class="card-title mb-0"><%= userevaluation.user.email %></h5>
+              <h5 class="card-title mb-0"><%= userevaluation.user.nickname %></h5>
             </div>
           </div>
           <div>
