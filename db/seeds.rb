@@ -15,6 +15,10 @@ def fetch_data(url)
   end
 end
 
+puts "Destroying all user evaluations..."
+UserEvaluation.destroy_all
+puts "All user evaluations destroyed."
+
 puts "Destroying all characters..."
 Character.destroy_all
 puts "All characters destroyed."
@@ -35,7 +39,13 @@ parsed_data['data'].each do |character_data|
   name = parsed_single_char_data['data']['name']
   about = parsed_single_char_data['data']['about']
   name_kanji = parsed_single_char_data['data']['name_kanji']
-  Character.create!(name: name, image_url: image_url_jpg, details: about, rating: 5, kanji: name_kanji, role: role)
+
+  if about.present?
+    Character.create!(name: name, image_url: image_url_jpg, details: about, rating: 5, kanji: name_kanji, role: role)
+    puts "Created character: #{name}"
+  else
+    puts "Skipped character: #{name} due to missing details."
+  end
 
   sleep(1)
 end
