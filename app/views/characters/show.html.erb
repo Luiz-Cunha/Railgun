@@ -42,7 +42,7 @@
     <div class="container my-3">
       <%= simple_form_for [@character, @userevaluation] do |f| %>
         <%= f.input :comments %>
-        <%= f.input :userrating %>
+        <%= f.input :userrating, as: :select, collection: 1..5 %>
         <%= f.button :submit, "Save Review", class: "btn btn-secondary" %>
       <% end %>
       </div>
