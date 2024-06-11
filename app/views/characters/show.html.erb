@@ -3,17 +3,28 @@
     <div class="col-6 col-md-4 col-lg-3 p-3">
       <div class="card border-0">
         <img class="card-img-top w-100" srcset="<%= @character.image_url%>" alt="<%= @character.name %>">
-        <p><%= @character.rating %><i class="fas fa-star"></i></p>
+        <div class="d-flex py-3">
+          <% @character.calculate_rating.times do %>
+            <i class="fas fa-star text-warning p-2 fs-4"></i>
+          <% end %>
+          <% if @character.calculate_rating < 5 %>
+            <% (5 - @character.calculate_rating).times do %>
+              <i class="fas fa-star p-2 fs-4"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="col-lg-9 my-3" >
-      <p>
-      <%= @character.name %>
-      <% if @character.kanji != "" %>
-      <%= "(#{@character.kanji})" %>
-      <% end %>
-      </p>
-      <p><%= @character.details %></p>
+    <div class="col-lg-9 my-3">
+      <div class="character-details p-4 bg-light rounded shadow-sm">
+        <h2 class="character-name mb-3">
+          <%= @character.name %>
+          <% if @character.kanji.present? %>
+          <small class="text-muted">(<%= @character.kanji %>)</small>
+          <% end %>
+        </h2>
+        <p class="mb-0"><%= @character.details %></p>
+      </div>
     </div>
   </div>
 </div>
@@ -21,7 +32,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-10 d-flex justify-content-center">
-      <button class="btn btn-primary w-100 p-3 rounded-4"><i class="fa-solid fa-plus"></i></button>
+      <button class="btn btn-secondary w-100 p-3 rounded-4"><i class="fa-solid fa-plus"></i></button>
     </div>
   </div>
 </div>
@@ -30,7 +41,7 @@
   <%= simple_form_for [@character, @userevaluation] do |f| %>
     <%= f.input :comments %>
     <%= f.input :userrating %>
-    <%= f.button :submit, class:"btn btn-primary"%>
+    <%= f.button :submit, class:"btn btn-secondary"%>
   <% end %>
 </div>
 
@@ -46,9 +57,13 @@
           </div>
         </div>
         <div>
-
-          <% 5.times do %>
+          <% userevaluation.userrating.times do %>
             <i class="fas fa-star text-warning"></i>
+          <% end %>
+          <% if userevaluation.userrating < 5 %>
+            <% (5 - userevaluation.userrating).times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
           <% end %>
         </div>
       </div>

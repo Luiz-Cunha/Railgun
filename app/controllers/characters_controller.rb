@@ -1,8 +1,7 @@
 class CharactersController < ApplicationController
   def show
     @character = Character.find(params[:id])
-
-    @userevaluation = UserEvaluation.new
     @userevaluations = @character.user_evaluations
+    @userevaluation = UserEvaluation.new
   end
 end
