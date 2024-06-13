@@ -65,9 +65,19 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes. Make sure to follow the coding style and include tests for any new features.
 
-## Acknowledgements
+## Technologies Used
 
-- [Jikan API](https://jikan.moe) for providing character data
-- [SweetAlert2](https://sweetalert2.github.io/) for beautiful alerts and notifications
-- [Cloudinary](https://cloudinary.com) for image storage and management
-- [Stimulus](https://stimulus.hotwired.dev) for adding interactivity to the Rails app
+### Frontend
+- [SCSS](https://sass-lang.com/) - Enhanced CSS with variables and nesting
+- [Bootstrap](https://getbootstrap.com/) - Responsive design and prebuilt components
+
+### Backend
+- [Ruby on Rails](https://rubyonrails.org/) - Web application framework
+- [pg_search](https://github.com/Casecommons/pg_search) - Full-text search functionality
+
+### Other Tools
+- [Jikan API](https://jikan.moe) - Providing character data
+- [SweetAlert2](https://sweetalert2.github.io/) - Beautiful alerts and notifications
+- [Cloudinary](https://cloudinary.com) - Image storage and management
+- [Stimulus](https://stimulus.hotwired.dev/) - Adding interactivity to the Rails app
+
