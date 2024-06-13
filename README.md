@@ -29,6 +29,7 @@ This webpage displays all the characters from the anime series "Toaru Kagaku no 
     ```sh
     rails db:create
     rails db:migrate
+    rails db:seed # To populate the DB
     ```
 
 4. Configure environment variables:
